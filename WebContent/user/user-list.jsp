@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>user list</title>
 </head>
 <body>
 	<%
@@ -21,9 +21,17 @@
 	
 	
 	<table border="1">
+	
+	
+		<a href="/web/user/user-insert.jsp"><button>회원정보다시입력</button></a>
+			<form action="/web/user/user-delete-ok.jsp">
+			
 	<button>삭제</button>
-	<form action="/web/user/user-list.jsp">
-	<a href="/web/user/user-insert.jsp"><button>회원정보다시입력</button></a>
+
+
+	
+
+
 	
 	<tr>
 	
@@ -38,10 +46,10 @@
 	while(rs.next()) {
 		%>
 		<tr>
-		<td> <input type="checkbox" name="ch" value="<%=rs.getInt("num") %>"></td>
-		<td><%=rs.getInt("num") %></td>
-		<td><%=rs.getString("name") %></td>
-		<td><%=rs.getString("ID") %></td>
+		<td><input type="checkbox" name="ch" value="<%=rs.getInt("num") %>"></td>
+		<td><a href="/web/user/user-update.jsp?num=<%=rs.getInt("num")%>"><%=rs.getInt("num") %></a></td>
+		<td><a href="/web/user/user-update.jsp?num=<%=rs.getInt("num")%>"><%=rs.getString("name") %></a></td>
+		<td><a href="/web/user/user-update.jsp?num=<%=rs.getInt("num")%>"><%=rs.getString("ID") %></a></td>
 		
 		
 </tr>
@@ -51,8 +59,9 @@
 <% 		
 	}
 %>
-</table>
-</form>
+
+</table></form>
+
 	<script>
 	
 	
